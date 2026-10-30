@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ddye7q6tqav7c" path="res://scripts/Player.cs" id="1_7uws0"]
 [ext_resource type="Script" uid="uid://b5vhratg8bjx" path="res://scripts/xrCharacter_controller.cs" id="2_t61fv"]
+[ext_resource type="PackedScene" uid="uid://cru6q34ij7gqu" path="res://scenes/characters/player/fade.tscn" id="3_686vu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bcx1r"]
 margin = 0.3
@@ -10,6 +11,13 @@ height = 1.7
 [sub_resource type="SphereMesh" id="SphereMesh_grdoj"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_gwprl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwprl"]
+transparency = 1
+albedo_color = Color(0.3372549, 1, 1, 0.30980393)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_grdoj"]
+material = SubResource("StandardMaterial3D_gwprl")
 
 [node name="Player" type="CharacterBody3D" unique_id=1329737805]
 transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999999, 0, 0, 0)
@@ -29,7 +37,10 @@ shape = SubResource("CapsuleShape3D_bcx1r")
 script = ExtResource("2_t61fv")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=1144033972]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000001, 0, 1.5000001, 0)
+
+[node name="Fade" parent="XROrigin3D/XRCamera3D" unique_id=1668975450 instance=ExtResource("3_686vu")]
 
 [node name="Lefthand" type="XRController3D" parent="XROrigin3D" unique_id=1163186706]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
@@ -46,3 +57,7 @@ tracker = &"right_hand"
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/Righthand" unique_id=494324163]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 mesh = SubResource("SphereMesh_gwprl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=116462044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_grdoj")
