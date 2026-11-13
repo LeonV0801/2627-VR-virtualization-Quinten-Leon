@@ -1,0 +1,6 @@
+res://scenes/rooms/BaseRoom.cs
+res://scenes/levels/BaseLevel.cs
+res://scripts/XRbase.cs
+res://scripts/Fade.cs
+res://scripts/Player.cs
+res://scripts/xrCharacter_controller.cs
