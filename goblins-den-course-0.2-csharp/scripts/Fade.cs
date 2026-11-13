@@ -5,6 +5,7 @@ using System.ComponentModel;
 public partial class Fade : Node3D
 {
 	private float _fade = 0.0f;
+	private MeshInstance3D _mesh;
 
 	[Export(PropertyHint.Range, "0.0f, 1.0f, 0.01f")] private float fade
 	{

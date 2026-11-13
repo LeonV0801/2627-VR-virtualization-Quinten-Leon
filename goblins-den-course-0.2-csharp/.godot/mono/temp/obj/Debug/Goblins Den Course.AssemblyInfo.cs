@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Goblins Den Course")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9d4bf8aceaaf915a2968dcd41c5363b5c5a869a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+980d70bd4ed9a742a38948ac6f4ed914716ad7aa")]
 [assembly: System.Reflection.AssemblyProductAttribute("Goblins Den Course")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Goblins Den Course")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
