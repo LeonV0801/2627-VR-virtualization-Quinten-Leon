@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://du4iytvqujxe7"]
 
+[ext_resource type="Script" uid="uid://bu3p6gh1gp0u5" path="res://scripts/XRBase.cs" id="1_1fp7r"]
 [ext_resource type="PackedScene" uid="uid://csjgov3pqdkoj" path="res://scenes/levels/level_01_welcome.tscn" id="2_1fp7r"]
 [ext_resource type="PackedScene" uid="uid://37tccejpw454" path="res://scenes/ui/ui.tscn" id="2_sl2e5"]
 
@@ -15,7 +16,12 @@ background_mode = 2
 sky = SubResource("Sky_dphjl")
 tonemap_mode = 2
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_gwprl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_grdoj"]
+
 [node name="World" type="Node3D" unique_id=906285710]
+script = ExtResource("1_1fp7r")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=915396933]
 environment = SubResource("Environment_sl2e5")
@@ -27,3 +33,13 @@ shadow_enabled = true
 [node name="UI" parent="." unique_id=123153430 instance=ExtResource("2_sl2e5")]
 
 [node name="Level-01-Welcome" parent="." unique_id=113800226 instance=ExtResource("2_1fp7r")]
+
+[node name="Box" type="StaticBody3D" parent="." unique_id=700942507]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49766624, -9.3160305)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box" unique_id=1193276580]
+shape = SubResource("BoxShape3D_gwprl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Box" unique_id=640137787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1484859, 0, 1.1296635)
+mesh = SubResource("BoxMesh_grdoj")

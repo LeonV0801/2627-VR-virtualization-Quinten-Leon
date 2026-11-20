@@ -1,10 +1,21 @@
 [gd_scene format=3 uid="uid://b3gi3yqvwb45o"]
 
 [ext_resource type="Script" uid="uid://ddye7q6tqav7c" path="res://scenes/characters/player/Player.cs" id="1_7uws0"]
+[ext_resource type="PackedScene" uid="uid://cru6q34ij7gqu" path="res://scenes/characters/player/fade.tscn" id="2_t61fv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bcx1r"]
 margin = 0.3
 height = 1.7
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_grdoj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwprl"]
+transparency = 1
+albedo_color = Color(0.21176471, 1, 1, 0.30980393)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gwprl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_grdoj"]
 
 [node name="Player" type="CharacterBody3D" unique_id=1329737805]
 transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999999, 0, 0, 0)
@@ -25,3 +36,31 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 current = true
 near = 0.001
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=627069170]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+mesh = SubResource("CapsuleMesh_grdoj")
+surface_material_override/0 = SubResource("StandardMaterial3D_gwprl")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=1286654880]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=1390026313]
+transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000001, 0, 1.5022075, 0)
+
+[node name="fade" parent="XROrigin3D/XRCamera3D" unique_id=1306579443 instance=ExtResource("2_t61fv")]
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D" unique_id=575355914]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+tracker = &"left_hand"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftHand" unique_id=1695220696]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = SubResource("BoxMesh_gwprl")
+
+[node name="RightHand" type="XRController3D" parent="XROrigin3D" unique_id=1797112006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+tracker = &"right_hand"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightHand" unique_id=2004047048]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = SubResource("BoxMesh_grdoj")
