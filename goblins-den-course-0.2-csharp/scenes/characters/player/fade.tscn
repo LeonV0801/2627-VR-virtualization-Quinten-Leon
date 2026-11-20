@@ -8,7 +8,7 @@ orientation = 2
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gwprl"]
 render_priority = 90
 shader = ExtResource("1_og3qr")
-shader_parameter/alpha = 0.0
+shader_parameter/alpha = 0.281
 
 [node name="fade" type="Node3D" unique_id=1306579443]
 
