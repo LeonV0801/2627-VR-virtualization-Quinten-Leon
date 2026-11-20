@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cru6q34ij7gqu"]
+
+[ext_resource type="Shader" uid="uid://dtkm27lwn7sa1" path="res://scenes/characters/player/fade.gdshader" id="1_og3qr"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_grdoj"]
+orientation = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gwprl"]
+render_priority = 90
+shader = ExtResource("1_og3qr")
+shader_parameter/alpha = 0.0
+
+[node name="fade" type="Node3D" unique_id=1306579443]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2070396682]
+mesh = SubResource("PlaneMesh_grdoj")
+surface_material_override/0 = SubResource("ShaderMaterial_gwprl")
